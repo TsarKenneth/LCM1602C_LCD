@@ -1,15 +1,13 @@
-LCM1602C_LCD
-============
-
 Author:		Kenneth Wong
 Email:		kenneth.wongwx@gmail.com
 Version:	1.0
 
 - Description -
-This library is created for LCM1602C Liquid Crystal Display 
-(LCD) and verified on Atmel Atmega 2560 micro controller. 
-Port mappings are as follows:
+This AVR library is created for LCM1602C Liquid Crystal 
+Display (LCD) and verified on Atmel Atmega 2560 micro 
+controller. Port mappings are as follows:
 	Atmega Port		| LCD Port
+	-------------------------------
 	PORT A [7:0]	| DB [7:0]
 	PORT B [7]		| RS
 	PORT B [6]		| R/W
@@ -23,7 +21,7 @@ purposes. Please retain this credit during use. If in doubt,
 please feel free to contact the author at the e-mail address 
 provided above.
  
-Finally, have fun with it! :)
+ Finally, have fun with it! :)
 	
 - Functions -
 void ClearDisplay()
