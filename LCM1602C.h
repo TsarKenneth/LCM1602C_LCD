@@ -3,7 +3,7 @@
  *
  * Author:	Kenneth Wong
  * Email:	kenneth.wongwx@gmail.com
- * Version:	1.0
+ * Version:	1.1
  *
  * - Description -
  * This library is created for LCM1602C Liquid Crystal Display
@@ -34,6 +34,12 @@
 #define LINE_1 {PORTA = 0x80; LATCH;}
 #define LINE_2 {PORTA = 0xC0; LATCH;}
 
+void ClearDisplay();
+void InitLCD(int, int);
+void WriteLine(char*, int, int);
+void WriteLines(char*, int, char*, int);
+void CarriageReturn();
+
 void ClearDisplay()
 {
 	CONTROL;
@@ -43,7 +49,11 @@ void ClearDisplay()
 }
 void InitLCD(int cursor, int blink)
 {
-	/**************Init MAIN**************/
+	/****Init IO****/
+	DDRA |= 0xFF;
+	DDRB |= 0xE0;
+	
+	/****Init MAIN****/
 	_delay_ms(40);
 	// Function Set
 	CONTROL;
@@ -67,7 +77,7 @@ void InitLCD(int cursor, int blink)
 	LATCH;
 	_delay_ms(1);
 	
-	/**************Init MISC**************/
+	/****Init MISC****/
 	// Display ON Control
 	PORTA = 0b00001100;
 	if (cursor == 1)
